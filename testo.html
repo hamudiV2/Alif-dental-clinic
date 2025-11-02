@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aleef Dental Clinic — Premium Dental Care & Cosmetic Dentistry</title>
+  <link rel="icon" href="images/photo_2025-09-06_17-23-20.png"ሽ።>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <style>
+    :root{
+      --blue: #0066cc;
+      --blue-dark: #004d99;
+      --gold: #ffb400;
+      --gold-light: #ffd166;
+      --bg: #fbfdff;
+      --card: #ffffff;
+      --muted: #5f6a75;
+      --muted-light: #8c96a1;
+      --success: #4caf50;
+      --shadow: 0 12px 32px rgba(15,30,45,0.1);
+      --shadow-light: 0 6px 20px rgba(15,30,45,0.08);
+      --ease: cubic-bezier(.2,.9,.3,1);
+      --radius: 16px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:"Inter",sans-serif;background:var(--bg);color:#14303b;line-height:1.6;overflow-x:hidden}
+    .container{max-width:1800px;margin:0 auto;padding:0 60px}
+
+    /* Enhanced Responsive Navigation */
+    header {
+      position: fixed;
+      top: 18px;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }
+    
+    .nav {
+      width: 100%;
+      max-width: 1800px;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      pointer-events: auto;
+      animation: slideDown 1s ease forwards;
+    }
+    
+    @keyframes slideDown {
+      from { transform: translateY(-100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 1001;
+    }
+    
+    .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background:var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 28px;
+      box-shadow: 0 6px 18px rgba(0,102,204,0.25);
+    }
+    
+    .brand h1 {
+      font-family: Montserrat;
+      font-size: 22px;
+      color: var(--blue);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    
+    /* Desktop Navigation */
+    nav ul {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+    
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0px 6px;
+      border-radius: 10px;
+      transition: all .35s var(--ease);
+      font-size: 16px;
+    }
+    
+    nav a:hover {
+      color: var(--blue);
+      transform: translateY(-4px) scale(1.08);
+      background: rgba(0,102,204,0.08);
+    }
+    
+    /* Language Dropdown */
+    .language-selector {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .language-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1px solid rgba(0,102,204,0.2);
+      border-radius: 10px;
+      padding: 10px 16px;
+      cursor: pointer;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 16px;
+      transition: all .35s var(--ease);
+    }
+    
+    .language-btn:hover {
+      color: var(--blue);
+      transform: translateY(-4px) scale(1.08);
+      background: rgba(0,102,204,0.08);
+    }
+    
+    .language-btn i {
+      font-size: 14px;
+      transition: transform 0.3s ease;
+    }
+    
+    .language-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 10px 0;
+      min-width: 160px;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+    
+    .language-selector.active .language-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .language-selector.active .language-btn i {
+      transform: rotate(180deg);
+    }
+    
+    .language-option {
+      padding: 12px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+    
+    .language-option:hover {
+      background: rgba(0,102,204,0.08);
+      color: var(--blue);
+    }
+    
+    .language-option.active {
+      background: rgba(0,102,204,0.1);
+      color: var(--blue);
+      font-weight: 600;
+    }
+    
+    .flag-icon {
+      width: 20px;
+      height: 15px;
+      border-radius: 2px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    
+    /* Mobile Navigation Toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+    }
+    
+    .nav-toggle span {
+      width: 30px;
+      height: 3px;
+      background: var(--blue);
+      border-radius: 2px;
+      margin: 3px 0;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+    
+    .nav-toggle.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .nav-toggle.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    /* Mobile Navigation */
+    @media (max-width: 1024px) {
+      .nav {
+        padding: 14px 24px;
+        position: relative;
+      }
+      
+      .nav-toggle {
+        display: flex;
+      }
+      
+      nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s var(--ease);
+        padding: 100px 30px 30px;
+        z-index: 999;
+        overflow-y: auto;
+      }
+      
+      nav.active {
+        right: 0;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+      }
+      
+      nav a {
+        display: block;
+        padding: 16px 20px;
+        font-size: 18px;
+        border-radius: 12px;
+        margin-bottom: 5px;
+        background: rgba(0, 102, 204, 0.05);
+      }
+      
+      nav a:hover {
+        transform: translateX(8px);
+        background: rgba(0, 102, 204, 0.1);
+      }
+      
+      .language-selector {
+        margin: 10px 0;
+      }
+      
+      .language-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .language-dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: transparent;
+        display: none;
+        margin-top: 10px;
+      }
+      
+      .language-selector.active .language-dropdown {
+        display: block;
+      }
+      
+      .nav-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+      }
+      
+      .nav-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .desktop-only {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .brand h1 {
+        font-size: 22px;
+      }
+      
+      .logo {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .nav {
+        padding: 12px 20px;
+      }
+      
+      .brand h1 {
+        font-size: 20px;
+      }
+      
+      .logo {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+      }
+    }
+    
+    /* Overlay for mobile menu */
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 998;
+    }
+    
+    .nav-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .btn{padding:16px 28px;border-radius:14px;font-weight:700;border:0;cursor:pointer;transition:all .35s var(--ease);box-shadow:var(--shadow-light);display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:16px}
+    .btn:hover{transform:scale(1.08) translateY(-2px)}
+    .btn-ghost{background:transparent;color:var(--blue);border:1px solid rgba(0,102,204,0.2);text-decoration: none;}
+    .btn-primary{background:linear-gradient(90deg,var(--blue),var(--blue-dark));color:#fff;position:relative;overflow:hidden}
+    .btn-primary::after{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);transition:all 0.6s ease}
+    .btn-primary:hover::after{left:100%}
+
+    .hero{padding:220px 0 160px;position:relative;color:#fff;background:url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1920&q=80') center/cover fixed}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, rgba(0,0,50,0.7) 0%, rgba(0,0,50,0.5) 100%)}
+    .hero-content{position:relative;z-index:1;max-width:1000px;animation:fadeUp 1.5s ease forwards}
+    .hero-title{font-family:Montserrat;font-size:76px;line-height:1.1;color:var(--gold);margin-bottom:32px;letter-spacing:-1px}
+    .hero-sub{margin:32px 0;font-size:24px;max-width:850px;margin-bottom:50px;font-weight:400}
+    .hero-buttons{display:flex;gap:20px}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:translateY(0)}}
+
+    section{padding:140px 0;position:relative}
+    .section-title{font-size:48px;color:var(--blue);margin-bottom:60px;text-align:center;opacity:0;transform:translateY(40px);transition:all 1s var(--ease);font-weight:800;letter-spacing:-1px}
+    .section-title.show{opacity:1;transform:none}
+    
+
+    .card{background:var(--card);border-radius:var(--radius);padding:40px;box-shadow:var(--shadow);transition:transform .5s var(--ease),box-shadow .5s var(--ease);opacity:0;transform:translateY(40px);position:relative;overflow:hidden}
+    .card.show{opacity:1;transform:translateY(0)}
+    .card:hover{transform:translateY(-16px) scale(1.03);box-shadow:0 34px 64px rgba(6,30,50,0.15)}
+    .card-icon{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:32px;background:rgba(0,102,204,0.1);color:var(--blue)}
+    .card-title{font-size:26px;margin-bottom:20px;color:var(--blue);font-weight:700}
+    .card-text{color:var(--muted);margin-bottom:24px;font-size:17px;line-height:1.7}
+
+    .services{background:linear-gradient(180deg,#fff,#f7fbff)}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
+
+    .booking{background:linear-gradient(180deg,#f7fbff,#fff);position:relative}
+    .booking::before{content:"";position:absolute;top:0;left:0;right:0;height:200px;background:url('https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1920&q=80') center/cover;opacity:0.03}
+    .booking-container{position:relative;z-index:1}
+    .booking-box{max-width:1200px;margin:0 auto;background:#fff;padding:60px;border-radius:var(--radius);box-shadow:var(--shadow);opacity:0;transform:translateY(40px);transition:all 1s var(--ease);position:relative;overflow:hidden}
+    .booking-box::before{content:"";position:absolute;top:0;left:0;width:100%;height:10px;background:linear-gradient(90deg,var(--blue),var(--gold))}
+    .booking-box.show{opacity:1;transform:none}
+    .booking-box h3{color:var(--blue);margin-bottom:40px;font-size:36px;text-align:center;font-weight:800}
+    .booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+    .field{margin-bottom:24px;text-align:left}
+    .field label{font-size:16px;color:var(--muted);margin-bottom:10px;display:block;font-weight:500}
+    .field input,.field select,.field textarea{width:100%;padding:18px;border-radius:14px;border:1px solid #e9eef2;font-size:16px;transition:all .3s ease;font-family:inherit}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,102,204,0.2);outline:none}
+    .field-group{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .booking-notes{margin-top:24px;font-size:16px;color:var(--muted-light);text-align:center}
+    .booking-success{display:none;text-align:center;padding:50px 0}
+    .success-icon{font-size:70px;color:var(--success);margin-bottom:24px}
+    .booking-box button{width:100%;margin-top:20px;font-size:18px;padding:20px}
+
+    .about{background:linear-gradient(180deg,#fff,#f7fbff)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .about-image{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .about-image img{width:100%;height:auto;display:block;transition:transform 1s ease}
+    .about-image:hover img{transform:scale(1.05)}
+
+    /* Enhanced Testimonials Section */
+    .testimonials{background:url('https://images.unsplash.com/photo-1606811951709-6c5c98b600cf?auto=format&fit=crop&w=1920&q=80') center/cover fixed;position:relative;color:#fff;overflow:hidden}
+    .testimonials::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg, rgba(0,34,68,0.85) 0%, rgba(0,102,204,0.85) 100%)}
+    .testimonials-container{position:relative;z-index:1;overflow:hidden}
+    .testimonials-grid{display:flex;transition:transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);}
+    .testimonial-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:var(--radius);padding:40px;border:1px solid rgba(255,255,255,0.15);min-width:100%;opacity:0;transform:translateY(50px) scale(0.95);transition:all 0.8s cubic-bezier(0.23, 1, 0.32, 1);position:absolute;top:0;left:0;}
+    .testimonial-card.active{opacity:1;transform:translateY(0) scale(1);position:relative;}
+    .testimonial-text{font-style:italic;margin-bottom:24px;font-size:20px;line-height:1.6;position:relative;}
+    .testimonial-text::before{content:"";position:absolute;top:-20px;left:-15px;font-size:80px;color:rgba(255,255,255,0.1);font-family:Georgia, serif;}
+    .testimonial-author{display:flex;align-items:center;gap:20px}
+    .testimonial-avatar{width:60px;height:60px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);position:relative;}
+    .testimonial-avatar::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(45deg, transparent, rgba(255,180,0,0.2), transparent);}
+    .testimonial-avatar img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
+    .testimonial-avatar:hover img{transform:scale(1.1);}
+    .testimonial-info h4{font-weight:600;margin-bottom:4px;font-size:18px}
+    .testimonial-info p{font-size:16px;opacity:0.8}
+    .testimonial-rating{color:var(--gold);margin-top:10px;font-size:16px}
+    .testimonials-controls{display:flex;justify-content:center;gap:16px;margin-top:40px;}
+    .testimonial-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.3);cursor:pointer;transition:all 0.3s ease;}
+    .testimonial-dot.active{background:var(--gold);transform:scale(1.3);}
+    .testimonial-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:all 0.3s ease;}
+    .testimonial-nav:hover{background:var(--gold);}
+    .testimonial-nav.prev{left:20px;}
+    .testimonial-nav.next{right:20px;}
+    .testimonial-quote-icon{position:absolute;bottom:20px;right:20px;font-size:60px;opacity:0.1;color:var(--gold);}
+
+    .doctors{background:linear-gradient(180deg,#f7fbff,#fff)}
+    .doctors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+    .doctor-card{text-align:center}
+    .doctor-image{width:200px;height:200px;border-radius:50%;margin:0 auto 24px;overflow:hidden;border:4px solid var(--card);box-shadow:var(--shadow)}
+    .doctor-image img{width:100%;height:100%;object-fit:cover}
+    .doctor-name{font-size:24px;color:var(--blue);margin-bottom:10px;font-weight:700}
+    .doctor-specialty{color:var(--gold);margin-bottom:20px;font-weight:600;font-size:18px}
+    .doctor-bio{color:var(--muted);margin-bottom:24px;font-size:16px;line-height:1.6}
+
+    .faq{background:linear-gradient(180deg,#fff,#f7fbff)}
+    .faq-grid{max-width:1200px;margin:0 auto}
+    .faq-item{margin-bottom:24px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-light)}
+    .faq-question{background:var(--card);padding:24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--blue);transition:all 0.3s ease;font-size:18px}
+    .faq-question:hover{background:rgba(0,102,204,0.05)}
+    .faq-question i{transition:transform 0.3s ease}
+    .faq-answer{background:var(--card);padding:0 24px;max-height:0;overflow:hidden;transition:all 0.3s ease;font-size:17px;line-height:1.6}
+    .faq-item.active .faq-question i{transform:rotate(180deg)}
+    .faq-item.active .faq-answer{padding:24px;max-height:300px}
+
+    .contact{background:linear-gradient(180deg,#f7fbff,#fff)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+    .contact-info{display:flex;flex-direction:column;gap:30px}
+    .contact-item{display:flex;gap:20px;align-items:flex-start}
+    .contact-icon{width:60px;height:60px;border-radius:50%;background:rgba(0,102,204,0.1);display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:24px;flex-shrink:0}
+    .contact-details h4{font-size:20px;margin-bottom:8px;color:var(--blue)}
+    .contact-details p{color:var(--muted);line-height:1.5;font-size:17px}
+    .map-container{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);height:100%}
+    .map-container iframe{width:100%;height:100%;min-height:450px;border:0}
+
+    footer{background:#002244;color:#fff;padding:100px 60px 60px;margin-top:60px;position:relative}
+    footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg, transparent, var(--gold), transparent)}
+    .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:60px;max-width:1600px;margin:0 auto}
+    .footer-grid h4{color:var(--gold);margin-bottom:24px;font-size:20px}
+    .footer-grid p{color:#ddd;margin-bottom:24px;line-height:1.6;font-size:16px}
+    .footer-grid a{color:#ddd;text-decoration:none;display:block;margin-bottom:14px;transition:all .3s ease;font-size:16px}
+    .footer-grid a:hover{color:var(--gold);transform:translateX(4px)}
+    .social{display:flex;gap:20px;margin-top:24px}
+    .social a{width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:20px;transition:all .3s ease}
+    .social a:hover{background:var(--gold);color:#002244;transform:translateY(-4px)}
+    .newsletter-form{display:flex;gap:12px;margin-top:20px}
+    .newsletter-input{flex:1;padding:16px 20px;border-radius:10px;border:none;background:rgba(255,255,255,0.1);color:#fff;font-size:16px}
+    .newsletter-input::placeholder{color:rgba(255,255,255,0.6)}
+    .newsletter-btn{background:var(--gold);color:#002244;border:none;border-radius:10px;padding:0 24px;font-weight:600;cursor:pointer;transition:all .3s ease;font-size:16px}
+    .newsletter-btn:hover{background:var(--gold-light);transform:translateY(-2px)}
+    .copy{text-align:center;margin-top:80px;font-size:16px;color:#aaa;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1)}
+
+    /* Animation classes */
+    .reveal{opacity:0;transform:translateY(40px);transition:all 0.8s cubic-bezier(0.23, 1, 0.32, 1);}
+    .reveal.show{opacity:1;transform:translateY(0);}
+    .reveal-left{opacity:0;transform:translateX(-40px);transition:all 0.8s cubic-bezier(0.23, 1, 0.32, 1);}
+    .reveal-left.show{opacity:1;transform:translateX(0);}
+    .reveal-right{opacity:0;transform:translateX(40px);transition:all 0.8s cubic-bezier(0.23, 1, 0.32, 1);}
+    .reveal-right.show{opacity:1;transform:translateX(0);}
+    .reveal-scale{opacity:0;transform:scale(0.9);transition:all 0.8s cubic-bezier(0.23, 1, 0.32, 1);}
+    .reveal-scale.show{opacity:1;transform:scale(1);}
+    .delay-1{transition-delay:0.1s;}
+    .delay-2{transition-delay:0.2s;}
+    .delay-3{transition-delay:0.3s;}
+    .delay-4{transition-delay:0.4s;}
+    .delay-5{transition-delay:0.5s;}
+
+    /* Pulse animation for CTA buttons */
+    @keyframes pulse {
+      0% {box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.4);}
+      70% {box-shadow: 0 0 0 15px rgba(0, 102, 204, 0);}
+      100% {box-shadow: 0 0 0 0 rgba(0, 102, 204, 0);}
+    }
+    .pulse {animation: pulse 2s infinite;}
+
+    /* Floating animation */
+    @keyframes float {
+      0% {transform: translateY(0px);}
+      50% {transform: translateY(-10px);}
+      100% {transform: translateY(0px);}
+    }
+    .float {animation: float 6s ease-in-out infinite;}
+
+    /* Responsive styles */
+    @media (max-width: 1600px) {
+      .container{padding:0 40px}
+    }
+    @media (max-width: 1200px) {
+      .services-grid, .testimonials-grid, .doctors-grid, .stats-grid {grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .testimonial-nav{display:none;}
+    }
+    @media (max-width: 900px) {
+      .container{padding:0 30px}
+      .nav{padding:14px 24px;flex-wrap:wrap}
+      nav ul{gap:16px}
+      .hero-title{font-size:56px}
+      .hero-sub{font-size:20px}
+      .booking-grid{grid-template-columns:1fr}
+      .about-grid, .contact-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .stats-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 600px) {
+      .services-grid, .testimonials-grid, .doctors-grid{grid-template-columns:1fr}
+      .hero-buttons{flex-direction:column}
+      .field-group{grid-template-columns:1fr}
+      .nav{flex-direction:column;gap:16px}
+      nav ul{flex-wrap:wrap;justify-content:center}
+    }
+  
+/* Footer Enhancements */
+footer { 
+  background:#002244;
+  color:#fff;
+  padding:100px 60px 60px;
+  margin-top:60px;
+  position:relative;
+  overflow:hidden;
+}
+footer::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg, transparent, var(--gold), transparent);
+  animation: glowLine 6s linear infinite;
+}
+@keyframes glowLine {
+  0%{background-position:0% 50%}
+  100%{background-position:100% 50%}
+}
+.footer-grid > div{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s cubic-bezier(.2,.9,.3,1);
+}
+.footer-grid > div.show{
+  opacity:1;
+  transform:translateY(0);
+}
+.footer-grid a{
+  position:relative;
+  overflow:hidden;
+}
+.footer-grid a::after{
+  content:"";
+  position:absolute;
+  left:0;bottom:0;
+  width:100%;height:2px;
+  background:var(--gold);
+  transform:translateX(-100%);
+  transition:transform .4s ease;
+}
+.footer-grid a:hover::after{
+  transform:translateX(0);
+}
+footer .social a{
+  animation: floatUp 6s ease-in-out infinite;
+}
+@keyframes floatUp {
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+  100%{transform:translateY(0)}
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="brand">
+        <div class="logo-mark"><div class="logo"><img alt="" class="logo" src="images/photo_2025-09-06_17-23-20.png"/></div></div>
+        <h1>Aleef Dental Clinic</h1>
+      </div>
+      
+      <button class="nav-toggle" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav id="mainNav">
+        <ul>
+            <li><a href="#home">Mana</a></li>
+            <li><a href="#services">Tajaajilawwan</a></li>
+            <li><a href="#about">Waa'ee Keenya</a></li>
+            <li><a href="#testimonials">Ragaa Maamila</a></li>
+            <li><a href="#booking">Kakuu</a></li>
+            <li><a href="#contact">Nu Quunnamaa</a></li>
+            <div class="language-selector" id="languageSelector">
+              <button class="language-btn">
+                  Afaan
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="language-dropdown">
+                <div class="language-option active" data-lang="en">
+                  <a href=""> English</a>
+                </div>
+                <div class="language-option" data-lang="am">
+                  <a href="index_amh.html"> አማርኛ</a>
+                </div>
+                <div class="language-option" data-lang="om">
+                  <a href="index_affan_oromo.html"> Afaan Oromo</a>
+                </div>
+              </div>
+            </div>
+          </li>
+        <li class="nav-actions">
+          <button class="btn btn-primary pulse" onclick="scrollToBooking()"><i class="fas fa-calendar-check"></i> Amma Kaku</button>
+          <a href="tel:+251913711771" class="btn btn-ghost"><i class="fas fa-phone"></i> Amma Bilbila</a>
+        </li>
+        </ul>
+      </nav>
+      
+      
+      
+      <div class="nav-overlay" id="navOverlay"></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <h2 class="hero-title">Ciniinna Ilkaanii Keessan Gaariidhaaf</h2>
+        <p class="hero-sub">Kilinika Ilkaanii Aleef teknooloojii cimee waliin qabdi tajaajila yaalaa qajeelaa ta’e kenna. Adda durummaa ilkaanii hanga jijjiirra ilkaanii guutummatti.</p>
+        <div class="hero-buttons">
+          <button class="btn btn-primary pulse" onclick="scrollToBooking()"><i class="fas fa-calendar-plus"></i> Kakuu Qabachuu</button>
+          <button class="btn btn-primary" onclick="scrollToServices()"><i class="fas fa-teeth-open"></i> Tajaajilawwan Keenya</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <h2 class="section-title">Tajaajilawwan Keenya Olaanoo</h2>
+        <div class="services-grid">
+          <div class="card reveal delay-1" id="service1">
+            <div class="card-icon float"><i class="fas fa-teeth"></i></div>
+            <h3 class="card-title">Hammamtaa Ilkaanii / Ortoodooniksii</h3>
+            <p class="card-text">Qorannoo guutuu fayyadamaa tekinooloojii diijitaalaa fayyadamuun rakkoolee muddama sanaa dura argachuuf fi karoorra tajaajilaa namootaaf kan qophaa'e ooleessuuf.</p>
+          </div>
+          <div class="card reveal delay-2" id="service2">
+            <div class="card-icon float"><i class="fas fa-water"></i></div>
+            <h3 class="card-title">Ilkaan Dhiquu / Iffachiisuu</h3>
+            <p class="card-text">Sammuu keessan jijjiira, tajaajila fayyadamaa olaanoo, veneers porcelain, ifa ilkaanii fi guutuu sammuu jijjiiramuu dabalatee.</p>
+          </div>
+          <div class="card reveal delay-3" id="service3">
+            <div class="card-icon float"><i class="fas fa-tooth"></i></div>
+            <h3 class="card-title">Ilkaan Haaromsuu fi Deebisuu</h3>
+            <p class="card-text">Furmaata dhugaa ilkaanii dhabeef fayyadama materiyallaa olaanoo kan ilkaanii uumamaa fakkaatu, lubbuufi hojii, fi hojii ilkaanii uumamaa fakkaata.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </section>
+<section class="booking" id="booking">
+    <div class="booking-box reveal-scale">
+        <h3>Yeroo Walgahii Keenya Kaku</h3>
+        <form id="booking-form">
+            <div class="booking-grid">
+            <div>
+            <div class="field">
+            <label for="name">Maqaa Guutuu *</label>
+            <input id="name" placeholder="Maqaa guutuu kee" required="" type="text"/>
+            </div>
+            <div class="field">
+            <label for="email">Teessoo Imeelii *</label>
+            <input id="email" placeholder="Teessoo imeelii kee" required="" type="email"/>
+            </div>
+            <div class="field">
+            <label for="phone">Lakkoofsa Bilbilaa *</label>
+            <input id="phone" placeholder="+251-900-000-000" required="" type="tel"/>
+            </div>
+            <div class="field">
+            <label for="date">Guyyaa Filatame *</label>
+            <input id="date" placeholder="Guyyaa filadhu" required="" type="text"/>
+            </div>
+            </div>
+            <div>
+            <div class="field">
+            <label for="time">Yeroo Filatame *</label>
+            <select id="time" required="">
+            <option value="">Yeroo filadhu</option>
+            <option value="09:00">09:00 WD</option>
+            <option value="10:00">10:00 WD</option>
+            <option value="11:00">11:00 WD</option>
+            <option value="12:00">12:00 WB</option>
+            <option value="14:00">02:00 WB</option>
+            <option value="15:00">03:00 WB</option>
+            <option value="16:00">04:00 WB</option>
+            <option value="17:00">05:00 WB</option>
+            </select>
+            </div>
+            <div class="field">
+            <label for="service">Tajaajila Barbaachisu *</label>
+            <select id="service" required="">
+            <option value="">Tajaajila filadhu</option>
+            <option value="checkup">Qorannoo Ilkaan</option>
+            <option value="cleaning">Ilkaan Dhiquu</option>
+            <option value="whitening">Ilkaan Iffachiisuu</option>
+            <option value="filling">Ilkaan Guutuu</option>
+            <option value="crown">Qurxummii Ilkaan</option>
+            <option value="implant">Ilkaan Haaromsuu</option>
+            <option value="braces">Ortoodooniksii/Hammamtaa</option>
+            <option value="other">Tajaajila biroo</option>
+            </select>
+            </div>
+            <div class="field">
+            <label for="message">Yaadannoo</label>
+            <textarea id="message" placeholder="Dhiyeessii ykn yaaddoo adda ta'e..." rows="5"></textarea>
+            </div>
+            </div>
+            </div>
+            <button class="btn btn-primary" type="submit"><i class="fas fa-calendar-check"></i> Kakuu Mirkaneessuu</button>
+        </form>
+        <div class="booking-success" id="booking-success">
+            <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+            <h3>Gaaffiin Kakuu Fudhateera!</h3>
+            <p>Kakuu kilinika Aleef Dental waliin godhuu keessaniif galatoomaa. Gabaasa kakuu keessan mirkaneessuuf si qunnamsiina.</p>
+            <button class="btn btn-primary" onclick="resetBookingForm()"><i class="fas fa-plus"></i> Kakuu Haaraa</button>
+        </div>
+        <p class="booking-notes">Kakuu keessan mirkaneessuuf sa'aatii 24 keessatti si qunnamsiina. Rakkoo ilkaan cimaaf nu quunnamaa: <a href="tel:+251913711771" style="color:var(--muted-light);text-decoration: none;">+251-913-711-771.</a></p>
+    </div>
+</section>
+
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <h2 class="section-title">Ragaa Maamila</h2>
+        <div class="testimonials-container">
+          <div class="testimonials-grid">
+            <div class="testimonial-card active">
+              <p class="testimonial-text">"Gareen Aleef Dental tajaajila implant koo hir'isuu baay'ee laaffisaa ta'e godhe. Ogummaa Dr. Chen fi eegumsa hojjetaan fedhii koo caalu. Sammuu koo haaraa waliin gammaduu hin danda'u!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-info">
+                  <p>Maamila Implant Ilkaanii</p>
+                </div>
+              </div>
+              <div class="testimonial-quote-icon"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-text">"Waggaa dheeraaf dhukkubsataa ilkaanii irraa fagaachuun, mala laaffisaa Aleef waliin hundumtuu jijjiirame. Darbii hunda irratti nuuf himu fi akka nagaa taatanii mirkaneeffatu. Ilkaanii koo waggaa dheeraaf ciniinna qabu!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-info">
+                  <p>Barsiisaa Ilkaanii</p>
+                </div>
+              </div>
+              <div class="testimonial-quote-icon"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-text">"Yaala ortodooniksii Aleef Dental keessatti argadheef baay’ee galateeffadha. Bu’aan isaa gaarii dha, akkasumas adeemsa guutuu naannoo kanaan caalaa akka tolchu hin yaadin. Baay’ee isinitti yaamama!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-info">
+                  <p>Barsiisaa Ortoodooniksii</p>
+                </div>
+              </div>
+              <div class="testimonial-quote-icon"><i class="fas fa-quote-right"></i></div>
+            </div>
+          </div>
+          
+          <div class="testimonials-controls">
+            <div class="testimonial-dot active" onclick="showTestimonial(0)"></div>
+            <div class="testimonial-dot" onclick="showTestimonial(1)"></div>
+            <div class="testimonial-dot" onclick="showTestimonial(2)"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Gaaffilee Itti Fufinsaan Gaafataman</h2>
+            <div class="faq-grid">
+            <div class="faq-item reveal">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                        Akka saffisaa ilkaan qorachuuf ilkaan dhakhtaratti deemuu qaba? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                        Guyyaa jahaaf (ji'a 6) qorannoo fi qulqullina ilkaanii godhanuu irratti gorsina. Haa ta'u malee, dhukkubsattoonni rakkoo ilkaanii addaa qaban, akka dhakartoonni isaanii gorsan akka saffisaan deemu qabu.
+                        </div>
+            </div>
+            <div class="faq-item reveal delay-1">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                        Inshuraansii ilkaan fudhattuu? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                        Eeyyeen, inshuraansii ilkaanii baay'ee guddaa fudhanna. Gareen keenya inshuraansii keessan waliin hojjechuun faayidaa keessan guddisuuf hojjetta. Tajaajilaa inshuraansiin hin kaffalanifis kaffaltii jijjiiramaa ta'e kennina.
+                        </div>
+            </div>
+            <div class="faq-item reveal delay-2">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                        Tartiiba nageenyaa maal qabdu? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                        Nageenya dhukkubsataa kaayyoo keenya guddaa. Tartiiba sterilizeeshanii cimaa hordofna, materiyallaa ittisa fayyadanna, fi klinika keenya sisteemii qulqullinaa qilleensaa qaba. Hojjettoonni keenya hundi qajeelfama nageenya dhukkubsataa qabu.
+                        </div>
+            </div>
+            <div class="faq-item reveal delay-3">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                        Yeroo hojiin ilkaan haaromsuu fudhatu hoo meeqa? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                        Hiriira guutuu yeroo 3-6 ji'a fudhata. Kunis yaada jalqabaa, dhaabbata implant, yeroo fayyadamaa (osseointegration), fi dhuma irratti dhaabbata crown dabalata. Haala tokko tokko implant guyyaa tokkoof kan maluudha.
+                        </div>
+            </div>
+            </div>
+        </div>
+</section>
+
+    </section>
+<section class="contact" id="contact">
+    <div class="container">
+    <h2 class="section-title">Nu Quunnamaa</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+            <div class="contact-item reveal-left">
+            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="contact-details">
+            <h4>Iddoo Keenya</h4>
+            <p>my land tower 1st floor, jemo 2, Addis Ababa, Ethiopia</p>
+            </div>
+            </div>
+            <div class="contact-item reveal-left delay-1">
+            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+            <div class="contact-details">
+            <h4>Lakkoofsa Bilbilaa</h4>
+            <a href="tel:+251982111002" style="text-decoration: none;"><p>+251-982-111-002</p></a>
+            <a href="tel:+251913711771" style="text-decoration: none;"><p>+251-913-711-771</p></a>
+            </div>
+            </div>
+            <div class="contact-item reveal-left delay-2">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div class="contact-details">
+            <h4>Teessoo Imeelii</h4>
+            <p>info@aleefdental.com</p>
+            <p>appointments@aleefdental.com</p>
+            </div>
+            </div>
+            <div class="contact-item reveal-left delay-3">
+            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+            <div class="contact-details">
+            <h4>Sa'aa Hojii</h4>
+            <p>Dilbata - Dilbata: 8:00 WD - 8:00 WB</p>
+            </div>
+            </div>
+            </div>
+            <div class="map-container reveal-right">
+            <iframe allowfullscreen="" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12674.34433042618!2d38.75789622117504!3d9.0402470330681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef5ab402d%3A0x8467b6b037a24d49!2sAddis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1710862238473!5m2!1sen!2sus"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="about" id="about">
+        <div class="container">
+        <h2 class="section-title">Waa'ee Keenya</h2>
+            <div class="about-grid">
+            <div class="card reveal-left">
+            <h3 class="card-title">Ciniinna Ilkaanii Keessatti Ga'umsa Bara 2020</h3>
+            <p class="card-text">Klinika Aleef Dental keessatti, tekinooloojii ammayyaa fi eegumsa namaa waliin wal qabsiifna. Gareen ogeessoonni keenya tajaajilaa nagaa fi bu'a qabu argachuuf mirkaneeffatu.</p>
+            <p class="card-text">Kaayyoo tajaajilaa ilkaanii aadaa addunyaa kennuuf kan jalqabne, dhukkubsataa 15,000 olif ga'umsa gaariif tajaajilaa kennineerra. Klinika keenya tekinooloojii ilkaanii kan haaraa, X-ray diijitaalaa, kaameraa mana keessaa, fi sisteemii CAD/CAM tajaajilaa guyyaa tokkoof kan qophaa'e qaba.</p>
+            <p class="card-text">Namni hundi ciniinna ilkaanii ciniinaa, bareedaa qabuuf mirkaneeffanna, fi tajaajilaa ilkaanii gaarii dhukkubsataa keenya hundaaf jijjiiramaa fi tekinooloojii olaanoo keessatti investimenti godhuun nagaa ta'ee argamsiisuu kan qophaa'ina.</p>
+            </div>
+            <div class="about-image reveal-right">
+            <img alt="Modern dental clinic interior" src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+            </div>
+            </div>
+        </div>
+</section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div style="margin-right: 20rem;">
+        <h4>Waa'ee Keenya Aleef Dental</h4>
+        <p>Tajaajila ilkaanii olaanaa bara 2020 irraa jalqabee kennuuf, tekinoolojii ammayyaa fi kunuunsa namaa fayyadamuun hojjechaa jirra. Dhugaa dubbachuun keenya duraa durii dha.</p>
+        <div class="social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-x"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Qunnamtii Ariifachiisaa</h4>
+        <a href="#home">Mana</a>
+        <a href="#services">Tajaajilawwan</a>
+        <a href="#about">Waa'ee Keenya</a>
+        <a href="#testimonials">Ragaa Maamila</a>
+        <a href="#booking">Amma Kaku</a>
+        <a href="#contact">Nu Quunnamaa</a>
+      </div>
+      <div>
+        <h4>Tajaajilawwan Keenya</h4>
+        <a href="#service1">Hammamtaa Ilkaanii / Ortoodooniksii</a>
+        <a href="#service2">Ilkaan Dhiquu / Iffachiisuu</a>
+        <a href="#service3">Ilkaan Haaromsuu fi Deebisuu</a>
+      </div>
+    </div>
+    <div class="copy">
+      <p>&copy; 2025 Aleef Dental Clinic. All rights reserved. | Powerd By 3S Technologies</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    // Initialize date picker
+    flatpickr("#date", {
+      minDate: "today",
+      dateFormat: "Y-m-d",
+      disableMobile: true
+    });
+
+    // Mobile Navigation Toggle
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    const navOverlay = document.getElementById('navOverlay');
+    
+    function toggleNav() {
+      navToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+      document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+    }
+    
+    navToggle.addEventListener('click', toggleNav);
+    navOverlay.addEventListener('click', toggleNav);
+    
+    // Close mobile nav when clicking on links
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 1024) {
+          toggleNav();
+        }
+      });
+    });
+
+    // Language selector functionality
+    const languageSelector = document.getElementById('languageSelector');
+    const languageOptions = document.querySelectorAll('.language-option');
+    
+    languageSelector.addEventListener('click', function(e) {
+      e.stopPropagation();
+      this.classList.toggle('active');
+    });
+    
+    languageOptions.forEach(option => {
+      option.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const lang = this.getAttribute('data-lang');
+        
+        // Remove active class from all options
+        languageOptions.forEach(opt => opt.classList.remove('active'));
+        
+        // Add active class to clicked option
+        this.classList.add('active');
+        
+        // Update button text
+        const flagIcon = this.querySelector('.flag-icon').textContent;
+        const languageText = this.textContent.trim();
+        languageSelector.querySelector('.flag-icon').textContent = flagIcon;
+        languageSelector.querySelector('.language-btn').innerHTML = `${flagIcon} ${languageText.split(' ')[0]} <i class="fas fa-chevron-down"></i>`;
+        
+        // Change site language (this would be implemented with a full translation system)
+        changeLanguage(lang);
+        
+        // Close dropdown
+        languageSelector.classList.remove('active');
+      });
+    });
+    
+    // Close language dropdown when clicking outside
+    document.addEventListener('click', function() {
+      languageSelector.classList.remove('active');
+    });
+    
+    function changeLanguage(lang) {
+      // This would be replaced with actual translation logic
+      console.log(`Changing language to: ${lang}`);
+      // In a real implementation, you would:
+      // 1. Load translation files
+      // 2. Update all text content on the page
+      // 3. Possibly change text direction for RTL languages
+    }
+
+    // Scroll functions
+    function scrollToBooking() {
+      document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
+    }
+    
+    function scrollToServices() {
+      document.getElementById('services').scrollIntoView({behavior: 'smooth'});
+    }
+
+    // Booking form handling
+    document.getElementById('booking-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('booking-form').style.display = 'none';
+      document.getElementById('booking-success').style.display = 'block';
+    });
+    
+    function resetBookingForm() {
+      document.getElementById('booking-form').reset();
+      document.getElementById('booking-form').style.display = 'block';
+      document.getElementById('booking-success').style.display = 'none';
+    }
+
+    // FAQ toggle
+    function toggleFaq(element) {
+      const faqItem = element.parentElement;
+      faqItem.classList.toggle('active');
+    }
+
+    // Testimonial slider
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    
+    function showTestimonial(index) {
+      testimonials[currentTestimonial].classList.remove('active');
+      dots[currentTestimonial].classList.remove('active');
+      
+      currentTestimonial = index;
+      
+      testimonials[currentTestimonial].classList.add('active');
+      dots[currentTestimonial].classList.add('active');
+    }
+    
+    function nextTestimonial() {
+      let nextIndex = currentTestimonial + 1;
+      if (nextIndex >= testimonials.length) nextIndex = 0;
+      showTestimonial(nextIndex);
+    }
+    
+    function prevTestimonial() {
+      let prevIndex = currentTestimonial - 1;
+      if (prevIndex < 0) prevIndex = testimonials.length - 1;
+      showTestimonial(prevIndex);
+    }
+    
+    // Auto rotate testimonials
+    setInterval(nextTestimonial, 6000);
+
+    // Scroll animations
+    function checkReveal() {
+      const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .section-title');
+      
+      revealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('show');
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', checkReveal);
+    window.addEventListener('load', checkReveal);
+  
+    // Footer reveal animation
+    function revealFooter(){
+      const footerBlocks = document.querySelectorAll('footer .footer-grid > div');
+      footerBlocks.forEach((block, i)=>{
+        const top = block.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+          setTimeout(()=> block.classList.add('show'), i*200);
+        }
+      });
+    }
+    window.addEventListener('scroll', revealFooter);
+    window.addEventListener('load', revealFooter);
+
+  </script>
+</body>
+</html>
