@@ -26,21 +26,16 @@ The **Alif Dental Clinic** website is a modern, responsive site designed for a d
 - **Bootstrap** 
 - **React.js** 
 
-## Screenshots
+## Responsive Design
 
-*(Add images by uploading to the repo and linking with Markdown)*
+![ALl Device Screenshot](https://github.com/hamudiV2/Alif-dental-clinic/blob/1bce1e151ed024addd88164410bf222b0dca5328/Blue%20White%20Gradient%20Creative%20Portfolio%20Presentation%20(1).svg)
 
-```
-![Homepage Screenshot](images/homepage.png)
-```
-
-## Getting Started
-
+## if you want clone it, follow below steps.
 To run the project locally:
 
 1. **Clone the repo:**
     ```
-    git clone https://github.com/hamudi2v/alifdentalclinic
+    git clone https://github.com/hamudiv2/alifdentalclinic
     ```
 2. **Navigate to the folder:**
     ```
@@ -50,17 +45,24 @@ To run the project locally:
 
 ## Author
 
-- **Your Name**
-- [Your Portfolio Link] (optional)
-- [Your LinkedIn] (optional)
+- **Mohammed Seid**
+- **Portfolio** = [Mohseid.com](https://Mohseid.framer.com)
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherineoelsner.com/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/)
+
+## ⭐ Show your Support
+
+**If you enjoyed this project, help others discover it by giving it a star!**
+
+👉 [Click here to star on GitHub!](https://github.com/hamudiv2/alif-dental-clinic) ⭐
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).  
-You are free to use, modify, and distribute this project with attribution. See the `LICENSE` file for details.
 
 ***
 
-**Tip:** Create a file called `LICENSE` in your repo and paste the MIT License text into it.
 
-Let me know if you want the MIT License text or further customizations!
